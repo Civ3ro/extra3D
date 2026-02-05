@@ -817,7 +817,7 @@ Promise.resolve(load()).then(() => {
           {blockType: Scratch.BlockType.BUTTON, text: "Show Docs", func: "openDocs"},
           {blockType: Scratch.BlockType.BUTTON, text: "Toggle Alerts", func: "alerts"},
           {opcode: "setRendererRatio", blockType: Scratch.BlockType.COMMAND, text: "set Pixel Ratio to [VALUE]", arguments: {VALUE: {type: Scratch.ArgumentType.NUMBER, defaultValue: "1"}}},
-          {opcode: "eulerOrder", blockType: Scratch.BlockType.COMMAND, text: "set euler order to [VALUE]", arguments: {VALUE: {type: Scratch.ArgumentType.STRING, defaultValue: "YXZ"}}},
+          {opcode: "eulerOrder", blockType: Scratch.BlockType.COMMAND, text: "set euler order of [OBJ] to [VALUE]", arguments: {OBJ: {type: Scratch.ArgumentType.STRING, defaultValue: "myObject"}, VALUE: {type: Scratch.ArgumentType.STRING, defaultValue: "YXZ"}}},
           ...sceneBlocks,
           ...cameraBlocks,
           ...objectBlocks,
@@ -836,7 +836,10 @@ Promise.resolve(load()).then(() => {
     openDocs(){open("https://civ3ro.github.io/extensions/Documentation/")}
     alerts() {alerts = !alerts; alerts ? alert("Alerts have been enabled!") : alert("Alerts have been disabled!")}
     setRendererRatio(args) {threeRenderer.setPixelRatio(window.devicePixelRatio * args.VALUE)}
-    eulerOrder(args) {eulerOrder = args.VALUE}
+    eulerOrder(args) {
+      const object = getObject(args.OBJ)
+      object.rotation.order = args.VALUE
+    }
 
     //sceneFunctions
     newScene(args) {
