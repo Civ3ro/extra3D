@@ -1,5 +1,6 @@
 # Check the newest version! 
-https://github.com/Brackets-Coder/ThreeJS-Extension/tree/Civero's-branch/civero/v2
+For Turbowarp: https://github.com/Brackets-Coder/ThreeJS-Extension/tree/Civero's-branch/civero/v2
+For Nitrobolt (faster): https://github.com/Brackets-Coder/ThreeJS-Extension/tree/Nitrobolt-arrays/civero/v2
 
 # Docs
 https://civ3ro.github.io/extra3D
